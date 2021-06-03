@@ -126,3 +126,9 @@ ul div{
   opacity: .5;
   text-decoration: line-through;
 }
+/* fall transition */
+.fall{
+  transform: translateY(200%) rotate(25deg);
+  opacity: 0;
+  transition: all .9s ease;
+}

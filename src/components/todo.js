@@ -1,10 +1,17 @@
+import { useRef } from "react";
 import React from 'react';
 
 const Todo = ({task, todos, setTodos, id, todo}) => {
 
+    const thisTodo = useRef('');
     /* Events */
     const deleteHandler = () => {
-        setTodos(todos.filter( el =>  el.id !== id  ));
+        /* setTodos(todos.filter( el =>  el.id !== id  )); */
+        thisTodo.current.classList.add('fall');
+        setTimeout(()=>{setTodos(todos.filter( el =>  el.id !== id  ))},
+            900
+        )
+
     }
     const completeHandler = () => {
         console.log(todo);
@@ -20,7 +27,7 @@ const Todo = ({task, todos, setTodos, id, todo}) => {
     }
 
     return(
-        <div className="todo">
+        <div ref={thisTodo} className="todo">
             <li className={`todo-item ${todo.status ? 'completed' : 'uncompleted'} `}>
                 {task}
             </li>
