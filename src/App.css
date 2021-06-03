@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body{
+  background-image: linear-gradient(120deg, #999b84, #926e6f);
+  color:white;
+  font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+header h1{
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1.25rem;
+}
+h1{
+  align-items: center;
+  min-height: 20vh;
+}
+p{
+  display: flex;
+  justify-content: center;
+}
+form{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+}
+form input, form button{
+  padding: .25rem;
+  font-size: 1rem;
+  border:none;
+  border-radius: 0;
+}
+form button{
+  padding: .25rem .4rem;
+  color: #999b84;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+form button:hover:not([disabled]){
+  color: #ffffff;
+  background: #999b84;
 }
 
-.App-link {
-  color: #61dafb;
+.select{
+  margin:0.5rem;
+  position: relative;
+  overflow:hidden;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.select select{
+  width: 7rem;
+  cursor: pointer;
+  padding: .35rem;
+  color: #999b84;
+  /* This below is just to 'style-off' any styling for our selects */
+  appearance: none;
+  -ms-progress-appearance: none;
+  outline:none;
+  border:none;
+}
+.select::after{
+  content:'\25BC';
+  background: #999b84;
+  position:absolute;
+  right:0;
+  top: 0;
+  padding:.15rem .3rem;
+  cursor:pointer;
+  pointer-events: none;
+  transition: all .3s ease;
+}
+.select:hover::after{
+  color:#7e7e76;
+  background-color: white;
+}
+.todo-container{
+  display: flex;
+  justify-content: center;
+}
+ul{
+  min-width: 30%;
+  list-style-type: none;
+}
+ul div{
+  display:flex;
+  justify-content: center;
+  background-color:white;
+  color:black;
+}
+.todo{
+  display:flex;
+  justify-content: space-between;
+}
+.todo .todo-item{
+  flex:1;
+  transition: all .4s ease;
+}
+.todo button, .todo li{
+  padding: .4rem;
+  border:none;
+  border-radius: 0;
+}
+.todo button{
+  padding: .4rem .6rem;
+  cursor:pointer;
+  color:white;
+}
+.todo button.complete-btn{
+  background:lawngreen;
+  transition: all .4s ease;
+}
+.todo button.complete-btn:hover{
+  background: rgb(105, 206, 3);
+}
+.todo button.trash-btn{
+  background: crimson;
+  transition: all .4s ease;
+}
+.todo button.trash-btn:hover{
+  background: rgb(169, 10, 42);
+}
+.completed{
+  opacity: .5;
+  text-decoration: line-through;
 }
